@@ -33,10 +33,6 @@ public class ${entity} extends Model<${entity}> {
 <#else>
 public class ${entity} implements Serializable {
 </#if>
-
-<#if entitySerialVersionUID>
-    static final long serialVersionUID = 1L;
-</#if>
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#list table.fields as field>
     <#if field.keyFlag>
@@ -87,7 +83,6 @@ public class ${entity} implements Serializable {
     ${field.propertyType} ${field.propertyName};
 </#list>
 <#------------  END 字段循环遍历  ---------->
-
 <#if !entityLombokModel>
     <#list table.fields as field>
         <#if field.propertyType == "boolean">

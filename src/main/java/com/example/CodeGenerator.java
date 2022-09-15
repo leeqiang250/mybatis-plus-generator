@@ -35,7 +35,7 @@ public class CodeGenerator {
      * 表名，多个表用英文逗号分隔
      */
     //private static final String TABLES = "t_test,nft_composite_element";
-    private static final String TABLES = "language";
+    private static final String TABLES = "language,image";
 
     /**
      * 表前缀，例如某公司规范，所有表名必须以t_开头，生成model时候会生成@TableName注解标明表的名称
@@ -45,7 +45,7 @@ public class CodeGenerator {
     /**
      * 数据库连接地址
      */
-    private static final String URL = "jdbc:mysql://52.77.131.111:3306/ido_server?useUnicode=true&useSSL=false&characterEncoding=utf8";
+    private static final String URL = "jdbc:mysql://52.77.131.111:3306/kiko-move?useUnicode=true&useSSL=false&characterEncoding=utf8";
 
     /**
      * 数据驱动名称
