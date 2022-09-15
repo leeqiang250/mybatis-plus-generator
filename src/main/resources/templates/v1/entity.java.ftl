@@ -4,37 +4,18 @@ import com.baomidou.mybatisplus.annotation.TableField;
 <#list table.importPackages as pkg>
 import ${pkg};
 </#list>
-<#if swagger2>
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-</#if>
 <#if entityLombokModel>
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-    <#if chainModel>
-import lombok.experimental.Accessors;
-    </#if>
+import lombok.*;
 </#if>
 
 /**
- * ${table.comment!}
- *
  * @author ${author}
- * @since ${date}
  */
 <#if entityLombokModel>
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-    <#if superEntityClass??>
-@EqualsAndHashCode(callSuper = true)
-    <#else>
-@EqualsAndHashCode(callSuper = false)
-    </#if>
     <#if chainModel>
 @Accessors(chain = true)
     </#if>
@@ -54,7 +35,7 @@ public class ${entity} implements Serializable {
 </#if>
 
 <#if entitySerialVersionUID>
-    private static final long serialVersionUID = 1L;
+    static final long serialVersionUID = 1L;
 </#if>
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#list table.fields as field>
@@ -103,7 +84,7 @@ public class ${entity} implements Serializable {
     <#else>
     @TableField("${field.annotationColumnName}")
     </#if>
-    private ${field.propertyType} ${field.propertyName};
+    ${field.propertyType} ${field.propertyName};
 </#list>
 <#------------  END 字段循环遍历  ---------->
 
@@ -146,7 +127,6 @@ public class ${entity} implements Serializable {
         return null;
     </#if>
     }
-
 </#if>
 <#if !entityLombokModel>
     @Override

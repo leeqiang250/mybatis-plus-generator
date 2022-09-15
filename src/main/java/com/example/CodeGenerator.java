@@ -14,7 +14,7 @@ public class CodeGenerator {
     /**
      * author
      */
-    private static final String AUTHOR = "leeqiang";
+    private static final String AUTHOR = "liqiang";
 
     /**
      * 项目路径
@@ -34,7 +34,8 @@ public class CodeGenerator {
     /**
      * 表名，多个表用英文逗号分隔
      */
-    private static final String TABLES = "nft_composite_card,nft_composite_element";
+    //private static final String TABLES = "t_test,nft_composite_element";
+    private static final String TABLES = "language";
 
     /**
      * 表前缀，例如某公司规范，所有表名必须以t_开头，生成model时候会生成@TableName注解标明表的名称
