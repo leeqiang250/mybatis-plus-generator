@@ -48,6 +48,7 @@ public class ${entity} implements Serializable {
      */
         </#if>
     </#if>
+    @JsonProperty("${field.annotationColumnName}")
     <#if field.keyFlag>
         <#-- 主键 -->
         <#if field.keyIdentityFlag>
@@ -66,7 +67,7 @@ public class ${entity} implements Serializable {
     @TableField(fill = FieldFill.${field.fill})
         </#if>
     <#elseif field.convert>
-    @TableField("${field.annotationColumnName}")
+<#--    @TableField("${field.annotationColumnName}")-->
     </#if>
     <#-- 乐观锁注解 -->
     <#if (versionFieldName!"") == field.name>
